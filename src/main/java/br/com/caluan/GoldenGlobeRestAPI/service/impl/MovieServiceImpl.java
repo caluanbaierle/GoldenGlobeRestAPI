@@ -88,7 +88,7 @@ public class MovieServiceImpl implements MovieService {
             String[] names = movie.getProducers().split(",");
             for (String name : names) {
                 for (ProducersDTO produtor : producersData) {
-                    if (produtor.getProducer().toLowerCase(Locale.ROOT).equals(name.toLowerCase(Locale.ROOT))) {
+                    if (produtor.getProducer().toLowerCase(Locale.ROOT).equals(name.trim().toLowerCase(Locale.ROOT))) {
                         produtor.setFollowingWin(Integer.parseInt(movie.getYear()));
                         control = false;
                     }
@@ -96,7 +96,7 @@ public class MovieServiceImpl implements MovieService {
                 if (control) {
                     ProducersDTO producersDTO = new ProducersDTO();
                     producersDTO.setPreviousWin(Integer.parseInt(movie.getYear()));
-                    producersDTO.setProducer(name);
+                    producersDTO.setProducer(name.trim());
                     producersData.add(producersDTO);
                 }
             }

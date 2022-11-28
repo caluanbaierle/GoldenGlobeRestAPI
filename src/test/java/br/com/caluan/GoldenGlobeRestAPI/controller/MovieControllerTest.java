@@ -71,7 +71,7 @@ public class MovieControllerTest {
     void shouldFetchProducers() throws Exception {
         this.mockMvc.perform(get(MOVIE_PATH + "/product")).andExpect(status().isOk())
                 .andExpect(jsonPath("min[0].producer", Is.is("Joel Silver")))
-                .andExpect(jsonPath("max[0].producer", Is.is("Buzz Feitshans")));
+                .andExpect(jsonPath("max[0].producer", Is.is("Matthew Vaughn")));
 
     }
 
